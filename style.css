@@ -6,6 +6,7 @@
     --green: green;
     --background: rgb(252, 252, 252);
     --border: rgb(219, 217, 215);
+    --buttonBackground: rgb(245, 243, 241);
 }
 
 /*   INFOS FÜR SEITE
@@ -100,12 +101,13 @@ header>div:last-of-type>div {
 /* ================================ Restaurant Info ================================ */
 .main {
     display: flex;
+    justify-content: space-between;
+
 }
 
 .main>section {
-    width: 76%;
+    width: 77.5%;
 }
-
 
 /* ================================ Restaurant Info ================================ */
 
@@ -117,7 +119,12 @@ header>div:last-of-type>div {
 .restaurant>div:last-of-type {
     padding-left: 10%;
     padding-right: 10%;
+}
 
+.restaurant>div:nth-of-type(2)>h1 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .restaurant>div:first-of-type>div:first-of-type {
@@ -125,12 +132,39 @@ header>div:last-of-type>div {
 
 }
 
-.restaurant>div:first-of-type>div:first-of-type>img {
+.backgroundImg {
+    background: url(./img/sushi-gc9eef7da9_1920.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 220px;
-    width: 100%;
     object-fit: cover;
     object-position: center;
+    padding-left: 10%;
 }
+
+.backgroundImg>div {
+    height: 100%;
+    display: flex;
+    justify-self: flex-start;
+    align-items: flex-end;
+}
+
+.backgroundImg>div>div {
+    position: relative;
+    bottom: -1rem;
+    background-color: white;
+    height: 70px;
+    width: 70px;
+    border-radius: 10px;
+    border: 1px solid var(--lightGrey);
+}
+
+.backgroundImg>div>div>img {
+    height: 70px;
+    width: 70px;
+}
+
 
 .bewertung {
     display: flex;
@@ -146,13 +180,16 @@ header>div:last-of-type>div {
 }
 
 .bewertung>div:last-of-type {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     text-decoration: underline;
     margin-left: 0.5rem;
 }
 
 .bewertung>div:last-of-type>p {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .lieferInfos {
@@ -194,13 +231,17 @@ header>div:last-of-type>div {
 /* ============================== WARENKORB ================================== */
 
 .warenkorb {
-    width: 24%;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    width: 22.5%;
     box-shadow: -2px 0px 2px 0px var(--lightGrey);
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    z-index: 5;
 }
 
 .warenkorb>div:last-of-type {
@@ -231,25 +272,85 @@ header>div:last-of-type>div {
     width: 100%;
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 0.8rem;
+    padding: 1rem;
     margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.categorie>div:hover {
+    background-color: var(--lightGrey);
 }
 
 .categorie>h1 {
-    margin-top: 1rem;
+    padding-top: 1rem;
+    margin-top: 0;
     margin-bottom: 1rem;
     font-weight: bold;
     font-size: 1.5rem;
-
 }
 
-.categorie>div>div>h1 {
+.categorie>div>div>div>h1 {
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 0;
+    font-weight: bold;
+    font-size: 1.3rem;
 }
 
 .gerichte>div p {
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.categorie>div>div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categorie>div>div:first-of-type>div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.categorie>div>div:first-of-type>div:first-of-type>img {
+    height: 22px;
+    width: auto;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    border-radius: 50%;
+}
+
+.categorie>div>div:first-of-type>div:last-of-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: var(--buttonBackground);
+    padding: 3px;
+}
+
+.categorie>div>div:first-of-type>div:last-of-type:hover {
+    border: 1px solid red;
+}
+
+.categorie>div>div:first-of-type>div:last-of-type>img {
+    height: 22px;
+    width: auto;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+
+.price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
 }

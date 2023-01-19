@@ -32,3 +32,39 @@ function render() {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+function openInfo() {
+
+
+}
+
+function addDish() {
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
