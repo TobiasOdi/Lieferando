@@ -28,13 +28,105 @@ let foods = [
 
 function render() {
 
+document.getElementById('content').innerHTML = '';
 
+for (let i = 0; i < foods.length; i++) {
 
+    let dishTitle = foods[i]['title'];
+    let dishDescription = foods[i]['description'];
+    let dishPrice = foods[i]['price'];
 
+    
+    document.getElementById('content').innerHTML += renderTemplate(i);
+}
 }
 
+function renderTemplate() {
+    return `
+    <div>
+            <div class="categorie">
+              <h1>Beliebt</h1>
+              <div>
+                <div>
+                  <div>
+                    <h1>${foods[i]['title']}</h1>
+                    <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
+                  </div>
+                  <div>
+                    <img onclick="addDish()" src="./img/icons/plus.png" alt="" />
+                  </div>
+                </div>
+                <p>
+                  ${foods[i]['description']}
+                </p>
+                <div class="price">
+                  <p>${foods[i]['price']}</p>
+                  <p>€</p>
+                </div>
+              </div>
 
+              <div>
+                <div>
+                  <div>
+                    <h1>${foods[i]['title']}</h1>
+                    <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
+                  </div>
+                  <div>
+                    <img onclick="addDish()" src="./img/icons/plus.png" alt="" />
+                  </div>
+                </div>
+                <p>
+                  ${foods[i]['description']}
+                </p>
+                <div class="price">
+                  <p>${foods[i]['price']}</p>
+                  <p>€</p>
+                </div>
+              </div>
+            </div>
 
+            <div class="categorie">
+              <h1>Sushi Menüs</h1>
+              <div>
+                <div>
+                  <div>
+                    <h1>${foods[i]['title']}</h1>
+                    <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
+                  </div>
+                  <div>
+                    <img onclick="addDish()" src="./img/icons/plus.png" alt="" />
+                  </div>
+                </div>
+                <p>
+                  ${foods[i]['description']}
+                </p>
+                <div class="price">
+                  <p>${foods[i]['price']}</p>
+                  <p>€</p>
+                </div>
+              </div>
+
+              <div>
+                <div>
+                  <div>
+                    <h1>${foods[i]['title']}</h1>
+                    <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
+                  </div>
+                  <div>
+                    <img onclick="addDish()" src="./img/icons/plus.png" alt="" />
+                  </div>
+                </div>
+                <p>
+                  ${foods[i]['description']}
+                </p>
+                <div class="price">
+                  <p>${foods[i]['price']}</p>
+                  <p>€</p>
+                </div>
+              </div>
+            </div>
+          </div>`;
+}
 
 
 

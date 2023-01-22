@@ -99,8 +99,8 @@
           </div>
         </section>
 
-        <section class="gerichte">
-          <div>
+        <section id="content" class="gerichte">
+          <!-- <div>
             <div class="categorie">
               <h1>Beliebt</h1>
               <div>
@@ -135,18 +135,10 @@
                 <div>
                   <div>
                     <h1>Mi Ga Chien Gion</h1>
-                    <img
-                      onclick="openInfo()"
-                      src="./img/icons/information (1).png"
-                      alt="icon eines Informationssymbols"
-                    />
+                    <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
                   </div>
                   <div>
-                    <img
-                      onclick="addDish()"
-                      src="./img/icons/plus.png"
-                      alt=""
-                    />
+                    <img onclick="addDish()" src="./img/icons/plus.png" alt=""/>
                   </div>
                 </div>
                 <p>
@@ -166,18 +158,10 @@
                 <div>
                   <div>
                     <h1>Mi Ga Chien Gion</h1>
-                    <img
-                      onclick="openInfo()"
-                      src="./img/icons/information (1).png"
-                      alt="icon eines Informationssymbols"
-                    />
+                    <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols" />
                   </div>
                   <div>
-                    <img
-                      onclick="addDish()"
-                      src="./img/icons/plus.png"
-                      alt=""
-                    />
+                    <img onclick="addDish(i)" src="./img/icons/plus.png" alt=""/>
                   </div>
                 </div>
                 <p>
@@ -190,7 +174,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </section>
       </section>
 
@@ -198,7 +182,7 @@
         <div>
           <h1>Warenkorb</h1>
         </div>
-        <div>
+        <div id="basketContent">
           <img
             src="./img/icons/einkaufstasche.png"
             alt="Icon einr Einkaufstasche"
@@ -213,6 +197,59 @@
     </section>
 
     <div class="Impressum"></div>
+
+    <div>
+      <div>
+        <div>
+          <p>Anzahl</p>
+          <p>Name Gericht</p>
+          <p>Preis</p>
+          <p>€</p>
+        </div>
+        <div>
+          <div>Anmerkung hizufügen</div>
+          <div>
+            <img src="./img/icons/minus.png" alt="" />
+            <img src="./img/icons/plus.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div id="hint">
+        <p>Benötigter Betrag, um den Mindestbestellwert zu erreichen</p>
+        <p>Differenz zum Mindestbestellwert</p>
+        <p>€</p>
+        <p>
+          Leider kannst du noch nicht bestellen. Mai Wok Sushi liefert erst ab
+          einem Mindestbestellwert von 57,00 € (exkl. Lieferkosten).
+        </p>
+      </div>
+
+      <div id="calculation"></div>
+      <div>
+        <div>
+          <div>
+            <p>Zwischensumme</p>
+            <div>
+              <p>Preis Summe</p>
+              <p>€</p>
+            </div>
+          </div>
+          <div>
+            <p>Lieferkosten</p>
+            <p>Kostenlos</p>
+          </div>
+          <div>
+            <div>Gesamt</div>
+            <div>
+              <p>Preis total</p>
+              <p>€</p>
+            </div>
+          </div>
+        </div>
+        <button type="button">Bezahlen (Pris total €)</button>
+      </div>
+    </div>
 
     <footer></footer>
   </body>
