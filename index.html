@@ -89,9 +89,7 @@
                 <div></div>
               </div>
               <div>
-                <img
-                  src="./img/icons/einkaufstasche.png"
-                  alt="Icon einer Tasche"
+                <img src="./img/icons/einkaufstasche.png" alt="Icon einer Tasche"
                 />
                 <p>Min. 57.00 €</p>
               </div>
@@ -100,85 +98,62 @@
         </section>
 
         <section id="content" class="gerichte">
-          <!-- <div>
+          <div>
             <div class="categorie">
               <h1>Beliebt</h1>
-              <div>
-                <div>
+              <div id="favorites">
+                <!-- <div>
                   <div>
-                    <h1>Mi Ga Chien Gion</h1>
-                    <img
-                      onclick="openInfo()"
-                      src="./img/icons/information (1).png"
-                      alt="icon eines Informationssymbols"
-                    />
+                    <div>
+                      <h1>Mi Ga Chien Gion</h1>
+                      <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
+                    </div>
+                    <div>
+                      <img onclick="addToBasekt()" src="./img/icons/plus.png" alt=""/>
+                    </div>
                   </div>
-                  <div>
-                    <img
-                      onclick="addDish()"
-                      src="./img/icons/plus.png"
-                      alt=""
-                    />
+                  <p>
+                    gebratene Nudeln mit paniertem Hühnerfleisch, Gemüse und
+                    Erdnusssauce
+                  </p>
+                  <div class="price">
+                    <p>12,90</p>
+                    <p>€</p>
                   </div>
-                </div>
-                <p>
-                  gebratene Nudeln mit paniertem Hühnerfleisch, Gemüse und
-                  Erdnusssauce
-                </p>
-                <div class="price">
-                  <p>12,90</p>
-                  <p>€</p>
-                </div>
-              </div>
-
-              <div>
-                <div>
-                  <div>
-                    <h1>Mi Ga Chien Gion</h1>
-                    <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
-                  </div>
-                  <div>
-                    <img onclick="addDish()" src="./img/icons/plus.png" alt=""/>
-                  </div>
-                </div>
-                <p>
-                  gebratene Nudeln mit paniertem Hühnerfleisch, Gemüse und
-                  Erdnusssauce
-                </p>
-                <div class="price">
-                  <p>12,90</p>
-                  <p>€</p>
-                </div>
+                </div> -->
               </div>
             </div>
 
             <div class="categorie">
               <h1>Sushi Menüs</h1>
-              <div>
-                <div>
+              <div id="sushiMenues">
+                <!-- <div>
                   <div>
-                    <h1>Mi Ga Chien Gion</h1>
-                    <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols" />
+                    <div>
+                      <h1>Mi Ga Chien Gion</h1>
+                      <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
+                    </div>
+                    <div>
+                      <img onclick="addDish()" src="./img/icons/plus.png" alt=""/>
+                    </div>
                   </div>
-                  <div>
-                    <img onclick="addDish(i)" src="./img/icons/plus.png" alt=""/>
+                  <p>
+                    gebratene Nudeln mit paniertem Hühnerfleisch, Gemüse und
+                    Erdnusssauce
+                  </p>
+                  <div class="price">
+                    <p>12,90</p>
+                    <p>€</p>
                   </div>
-                </div>
-                <p>
-                  gebratene Nudeln mit paniertem Hühnerfleisch, Gemüse und
-                  Erdnusssauce
-                </p>
-                <div class="price">
-                  <p>12,90</p>
-                  <p>€</p>
-                </div>
+                </div> -->
               </div>
             </div>
-          </div> -->
+
+          </div>
         </section>
       </section>
 
-      <aside class="warenkorb">
+      <aside class="basket">
         <div>
           <h1>Warenkorb</h1>
         </div>
@@ -198,31 +173,39 @@
 
     <div class="Impressum"></div>
 
-    <div>
-      <div>
+<!-- ==================================== WARENKORB INHALT ============================================ -->
+
+    <div class="items">
+      <div id="item" class="item">
         <div>
-          <p>Anzahl</p>
-          <p>Name Gericht</p>
-          <p>Preis</p>
-          <p>€</p>
-        </div>
-        <div>
-          <div>Anmerkung hizufügen</div>
           <div>
-            <img src="./img/icons/minus.png" alt="" />
-            <img src="./img/icons/plus.png" alt="" />
+            <div>
+              <p>Anzahl</p>
+              <p>Name Gericht</p>
+            </div>
+            <div>
+              <p>Preis</p>
+              <p>€</p>
+            </div>
+          </div>
+          <div>
+            <div>Anmerkung hizufügen</div>
+            <div>
+              <img onclick="addDish" src="./img/icons/minus.png" alt="Icon eines Minus Zeichens" />
+              <img onclick="removeDish" src="./img/icons/plus.png" alt="Icon eines Plus Zeichens" />
+            </div>
           </div>
         </div>
       </div>
 
-      <div id="hint">
-        <p>Benötigter Betrag, um den Mindestbestellwert zu erreichen</p>
-        <p>Differenz zum Mindestbestellwert</p>
-        <p>€</p>
-        <p>
-          Leider kannst du noch nicht bestellen. Mai Wok Sushi liefert erst ab
-          einem Mindestbestellwert von 57,00 € (exkl. Lieferkosten).
-        </p>
+      <div class="hint">
+        <div>
+          Benötigter Betrag, um den Mindestbestellwert zu erreichen
+        </div>
+        <div>
+          <p>Diff</p>
+          <p>€</p>
+        </div>
       </div>
 
       <div id="calculation"></div>
@@ -252,5 +235,7 @@
     </div>
 
     <footer></footer>
+
+    <script src="./script.js"></script>
   </body>
 </html>

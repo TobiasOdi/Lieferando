@@ -230,7 +230,7 @@ header>div:last-of-type>div {
 
 /* ============================== WARENKORB ================================== */
 
-.warenkorb {
+.basket {
     position: sticky;
     top: 0;
     align-self: flex-start;
@@ -245,21 +245,110 @@ header>div:last-of-type>div {
     padding: 0.5rem;
 }
 
-.warenkorb>div:last-of-type {
+.basket>div:last-of-type {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-.warenkorb>div:last-of-type>p {
+.basket>div:last-of-type>p {
     text-align: center;
 }
 
-.warenkorb>div:last-of-type>img {
+.basket>div:last-of-type>img {
     height: 50px;
     width: auto;
 }
+
+/* ============================== WARENKORB INHALT================================== */
+
+.items {
+    width: 300px;
+    border: 1px solid red;
+    padding: 0.5rem;
+}
+
+.item p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.item>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.item>div>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item>div>div>div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.item>div>div:first-of-type>div:first-of-type p {
+    font-weight: bold;
+}
+
+.item>div>div:last-of-type>div:first-of-type {
+    text-decoration: underline;
+}
+
+.item>div>div:last-of-type img {
+    height: 30px;
+    width: auto;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    background-color: var(--buttonBackground);
+}
+
+.item>div>div:last-of-type img:hover {
+    background-color: var(--buttonBackground);
+}
+
+.hint {
+    background-color: rgb(241, 241, 134);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 50px;
+    padding: 1rem;
+}
+
+.hint>div:first-of-type {
+    width: 70%;
+    font-size: 0.8rem;
+}
+
+.hint>div:last-of-type {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+}
+
+.hint>div:last-of-type p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+
+}
+
+
+.hint>div:last-of-type>p:first-of-type {
+    margin-right: 0.5rem;
+}
+
+
+
 
 /* ================================== GERICHTE ====================================== */
 
@@ -331,7 +420,7 @@ header>div:last-of-type>div {
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    background-color: var(--buttonBackground);
+    background-color: var(--background);
     padding: 3px;
 }
 
