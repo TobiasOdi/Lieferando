@@ -154,11 +154,11 @@
         </section>
       </section>
 
-      <aside class="basket">
+      <aside id="basketContent" class="basket">
         <div>
           <h1>Warenkorb</h1>
         </div>
-        <div id="basketContent">
+        <div>
           <img
             src="./img/icons/einkaufstasche.png"
             alt="Icon einr Einkaufstasche"
@@ -176,7 +176,7 @@
 
     <!-- ==================================== WARENKORB INHALT ============================================ -->
 
-    <div class="items">
+    <div id="items" class="items">
       <div id="item" class="item">
         <div>
           <div>
@@ -193,12 +193,12 @@
             <div>Anmerkung hizufügen</div>
             <div>
               <img
-                onclick="addDish"
+                onclick="addToBasket()"
                 src="./img/icons/minus.png"
                 alt="Icon eines Minus Zeichens"
               />
               <img
-                onclick="removeDish"
+                onclick="removeFromBasket()"
                 src="./img/icons/plus.png"
                 alt="Icon eines Plus Zeichens"
               />
@@ -206,14 +206,15 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="hint">
-        <div>Benötigter Betrag, um den Mindestbestellwert zu erreichen</div>
-        <div>
-          <p>Diff</p>
-          <p>€</p>
-        </div>
+    <div class="hint" class="show">
+      <div>Benötigter Betrag, um den Mindestbestellwert zu erreichen</div>
+      <div>
+        <p>Diff</p>
+        <p>€</p>
       </div>
+    </div>
 
     <div id="calculation" class="calculation">
       <div>
