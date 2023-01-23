@@ -49,7 +49,7 @@ for (let i = 0; i < foods.length; i++) {
 function renderTemplate(i) {
     return `
               <div>
-                <div>
+                <div class="foodTitle">
                   <div>
                     <h1>${foods[i]['title']}</h1>
                     <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
@@ -58,9 +58,9 @@ function renderTemplate(i) {
                     <img onclick="addToBasekt(${i})" src="./img/icons/plus.png" alt="" />
                   </div>
                 </div>
-                <p>
-                  ${foods[i]['description']}
-                </p>
+                <div class="foodDescription">
+                  <p>${foods[i]['description']}</p>
+                </div>
                 <div class="price">
                   <p>${foods[i]['price']}</p>
                   <p>€</p>
@@ -71,7 +71,7 @@ function renderTemplate(i) {
 /* =================================== OPEN INFO ======================================= */
 function openInfo() {
 
-
+s
 }
 
 /* =================================== ADD DISH TO BASKET ======================================= */

@@ -266,7 +266,7 @@ header>div:last-of-type>div {
 .items {
     width: 300px;
     border: 1px solid red;
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 .item p {
@@ -296,8 +296,13 @@ header>div:last-of-type>div {
     font-weight: bold;
 }
 
+.item>div>div:first-of-type>div:first-of-type>p:last-of-type {
+    padding-left: 1rem;
+}
+
 .item>div>div:last-of-type>div:first-of-type {
     text-decoration: underline;
+    padding-left: 1.6rem;
 }
 
 .item>div>div:last-of-type img {
@@ -347,6 +352,47 @@ header>div:last-of-type>div {
     margin-right: 0.5rem;
 }
 
+/* ============================== WARENKORB BERECHNUNG ================================== */
+
+.eur {
+    margin-left: 0.5rem;
+}
+
+.calculation>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.calculation>div>div {
+    border-bottom: 1px solid var(--lightGrey);
+}
+
+.calculation>div>div>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calculation>div>div>div>div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.calculation p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.calculation>div>button {
+    margin-top: 0.5rem;
+    border-radius: 30px;
+    height: 2.5rem;
+    background-color: var(--orange);
+    border: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
 
 
 
@@ -358,28 +404,50 @@ header>div:last-of-type>div {
     background-color: var(--background);
 }
 
-.categorie>div {
+.categorie {
     width: 100%;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    cursor: pointer;
 }
 
-.categorie>div:hover {
-    background-color: var(--lightGrey);
+.categorie>div {
+    width: 100%;
 }
 
 .categorie>h1 {
-    padding-top: 1rem;
-    margin-top: 0;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-.categorie>div>div>div>h1 {
+.categorie>div>div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.categorie>div>div:hover {
+    background-color: var(--lightGrey);
+}
+
+
+.categorie>div>div p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.foodTitle>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.foodTitle>div>h1 {
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 0;
@@ -387,25 +455,13 @@ header>div:last-of-type>div {
     font-size: 1.3rem;
 }
 
-.gerichte>div p {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.categorie>div>div:first-of-type {
+.foodTitle {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.categorie>div>div:first-of-type>div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.categorie>div>div:first-of-type>div:first-of-type>img {
+.foodTitle>div:first-of-type>img {
     height: 22px;
     width: auto;
     cursor: pointer;
@@ -413,7 +469,7 @@ header>div:last-of-type>div {
     border-radius: 50%;
 }
 
-.categorie>div>div:first-of-type>div:last-of-type {
+.foodTitle>div:last-of-type {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -424,17 +480,12 @@ header>div:last-of-type>div {
     padding: 3px;
 }
 
-.categorie>div>div:first-of-type>div:last-of-type:hover {
-    border: 1px solid red;
-}
-
-.categorie>div>div:first-of-type>div:last-of-type>img {
+.foodTitle>div:last-of-type>img {
     height: 22px;
     width: auto;
     cursor: pointer;
     border-radius: 50%;
 }
-
 
 .price {
     display: flex;

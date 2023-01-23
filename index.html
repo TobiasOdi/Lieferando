@@ -89,7 +89,9 @@
                 <div></div>
               </div>
               <div>
-                <img src="./img/icons/einkaufstasche.png" alt="Icon einer Tasche"
+                <img
+                  src="./img/icons/einkaufstasche.png"
+                  alt="Icon einer Tasche"
                 />
                 <p>Min. 57.00 €</p>
               </div>
@@ -148,7 +150,6 @@
                 </div> -->
               </div>
             </div>
-
           </div>
         </section>
       </section>
@@ -173,49 +174,57 @@
 
     <div class="Impressum"></div>
 
-<!-- ==================================== WARENKORB INHALT ============================================ -->
+    <!-- ==================================== WARENKORB INHALT ============================================ -->
 
     <div class="items">
       <div id="item" class="item">
         <div>
           <div>
             <div>
-              <p>Anzahl</p>
-              <p>Name Gericht</p>
+              <p>1</p>
+              <p>Mi Ga Chien Gion</p>
             </div>
             <div>
               <p>Preis</p>
-              <p>€</p>
+              <p class="eur">€</p>
             </div>
           </div>
           <div>
             <div>Anmerkung hizufügen</div>
             <div>
-              <img onclick="addDish" src="./img/icons/minus.png" alt="Icon eines Minus Zeichens" />
-              <img onclick="removeDish" src="./img/icons/plus.png" alt="Icon eines Plus Zeichens" />
+              <img
+                onclick="addDish"
+                src="./img/icons/minus.png"
+                alt="Icon eines Minus Zeichens"
+              />
+              <img
+                onclick="removeDish"
+                src="./img/icons/plus.png"
+                alt="Icon eines Plus Zeichens"
+              />
             </div>
           </div>
         </div>
       </div>
 
       <div class="hint">
-        <div>
-          Benötigter Betrag, um den Mindestbestellwert zu erreichen
-        </div>
+        <div>Benötigter Betrag, um den Mindestbestellwert zu erreichen</div>
         <div>
           <p>Diff</p>
           <p>€</p>
         </div>
       </div>
 
-      <div id="calculation"></div>
+    <div id="calculation" class="calculation">
       <div>
         <div>
           <div>
-            <p>Zwischensumme</p>
+            <div>
+              <p>Zwischensumme</p>
+            </div>
             <div>
               <p>Preis Summe</p>
-              <p>€</p>
+              <p class="eur">€</p>
             </div>
           </div>
           <div>
@@ -226,11 +235,11 @@
             <div>Gesamt</div>
             <div>
               <p>Preis total</p>
-              <p>€</p>
+              <p class="eur">€</p>
             </div>
           </div>
         </div>
-        <button type="button">Bezahlen (Pris total €)</button>
+        <button type="button">Bezahlen (Preis total €)</button>
       </div>
     </div>
 
