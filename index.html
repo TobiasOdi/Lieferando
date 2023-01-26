@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <body onload="render()">
+  <body onload="render(), load()">
     <header>
       <div>
         <img
@@ -93,7 +93,24 @@
                   src="./img/icons/einkaufstasche.png"
                   alt="Icon einer Tasche"
                 />
-                <p>Min. 57.00 €</p>
+                <p>Min. 57,00 €</p>
+              </div>
+            </div>
+
+            <div class="filter">
+              <div>
+                <img src="./img/icons/left-chevron.png">
+              </div>
+              <div>
+                <div><a href="#beliebt">Beliebt</a></div>
+                <div>Sushi Menüs</div>
+                <div>Vorspeisen und Salate</div>
+                <div>Suppen</div>
+                <div>Spezialitäten mit Reisnudeln</div>
+                <div>Gebratene Reisgerichte</div>
+              </div>
+              <div>
+                <img src="./img/icons/right-chevron.png">
               </div>
             </div>
           </div>
@@ -102,7 +119,7 @@
         <section id="content" class="gerichte">
           <div>
             <div class="categorie">
-              <h1>Beliebt</h1>
+              <h1 id="beliebt">Beliebt</h1>
               <div id="favorites">
                 <!-- <div>
                   <div>
@@ -159,9 +176,7 @@
           <h1>Warenkorb</h1>
         </div>
         <div>
-          <img
-            src="./img/icons/einkaufstasche.png"
-            alt="Icon einr Einkaufstasche"
+          <img src="./img/icons/einkaufstasche.png" alt="Icon einr Einkaufstasche"
           />
           <p>Fülle deinen Warenkorb</p>
           <p>

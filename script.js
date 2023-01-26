@@ -29,7 +29,7 @@ let foods = [
 function render() {
 
 for (let i = 0; i < foods.length; i++) {
-    let dishCategorie = foods[i]['categorie']
+    let dishCategorie = foods[i]['categorie'];
     let dishTitle = foods[i]['title'];
     let dishDescription = foods[i]['description'];
     let dishPrice = foods[i]['price'];
@@ -47,6 +47,7 @@ for (let i = 0; i < foods.length; i++) {
 }
 
 function renderTemplate(i) {
+
     return `
               <div>
                 <div class="foodTitle">
@@ -62,7 +63,7 @@ function renderTemplate(i) {
                   <p>${foods[i]['description']}</p>
                 </div>
                 <div class="price">
-                  <p>${foods[i]['price']}</p>
+                  <p>${foods[i]['price'].toFixed(2).replace('.', ',')}</p>
                   <p>€</p>
                 </div>
               <div>`;
@@ -101,6 +102,17 @@ function save() {
   localStorage.setItem('basket', basketAsText);     
   let pricesAsText = JSON.stringify(prices);
   localStorage.setItem('prices', pricesAsText);
+  let amountsAsText = JSON.stringify(amounts);
+  localStorage.setItem('amounts', amountsAsText);
+}
+
+function load() {
+  let basketAsText = JSON.stringify(basket);       
+  localStorage.setItem('basket', basketAsText); 
+  let pricesAsText = JSON.stringify(prices);       
+  localStorage.setItem('prices', pricesAsText); 
+  let amountsAsText = JSON.stringify(amounts);       
+  localStorage.setItem('amounts', amountsAsText); 
 }
 
 /* =================================== RENDER WARENKORB ======================================= */
@@ -111,7 +123,7 @@ function renderBasket() {
 
   if(basket.length == 0){
 
-    basketContent += `
+    basketContent = `
     <div>
         <h1>Warenkorb</h1>
         </div>
@@ -127,6 +139,10 @@ function renderBasket() {
           </p>
     </div>`;
   } else {
+    basketContent.innerHTML = `
+    <div>
+      <h1>Warenkorb</h1>
+    </div>`;
 
     for (let i = 0; i < basket.length; i++) {
       const item = basket[i];
@@ -143,7 +159,7 @@ function renderBasket() {
 
       //let diff = 57 - totalSum;
       //let diffFormatted = diff.toFixed(2).replace('.', ',');
-
+      
       basketContent.innerHTML += `
     <div id="items" class="items">
       <div id="item" class="item">
@@ -161,10 +177,14 @@ function renderBasket() {
           <div>
             <div>Anmerkung hizufügen</div>
             <div>
-              <img onclick="addToBasket(${i})" src="./img/icons/minus.png" alt="Icon eines Minus Zeichens"
+              <div>
+              <img onclick="removeFromBasket(${i})" src="./img/icons/minus.png" alt="Icon eines Minus Zeichens"
               />
-              <img onclick="removeFromBasket(${i})" src="./img/icons/plus.png" alt="Icon eines Plus Zeichens"
+              </div>
+              <div>
+              <img onclick="addToBasket(${i})" src="./img/icons/plus.png" alt="Icon eines Plus Zeichens"
               />
+              </div>
             </div>
           </div>
         </div>
@@ -243,99 +263,45 @@ function renderBasektCalculation(){
 } 
 
 
+function deleteFromBasket(i) {
+    basket.splice(i, 1);
+    prices.splice(i, 1);
+    amounts.splice(i, 1);
+
+    renderBasket();
+    save();
+}
+
+function removeFromBasket(i) {
+
+    if(amounts[i] > 1) {
+      amounts[i]--; 
+    } else {
+      basket.splice(i, 1);
+      prices.splice(i, 1);
+      amounts.splice(i, 1);
+    }
+
+    renderBasket();
+    save();
+}
+
+function addToBasket(i) {
+  amounts[i]++; 
+  
+  renderBasket();
+  save();
+}
 
 
 
-/* <div id="hint" class="hint">
-<div>Benötigter Betrag, um den Mindestbestellwert zu erreichen</div>
-<div>
-  <p>${diffFormatted}</p>
-  <p>€</p>
-</div>
-</div>
 
-<div id="calculation" class="calculation">
-<div>
-  <div>
-    <div>
-      <div>
-        <p>Zwischensumme</p>
-      </div>
-      <div>
-        <p>${sum.toFixed(2).replace('.', ',')}</p>
-        <p class="eur">€</p>
-      </div>
-    </div>
-    <div>
-      <p>Lieferkosten</p>
-      <p>5.00 €</p>
-    </div>
-    <div>
-      <div>Gesamt</div>
-      <div>
-        <p>${totalSum.toFixed(2).replace('.', ',')}</p>
-        <p class="eur">€</p>
-      </div>
-    </div>
-  </div>
-  <button type="button">Bezahlen (${totalSum.toFixed(2).replace('.', ',')} €)</button>
-</div>
-</div> */
 
-/* function renderBasketHint() {
-  let diff = 57 - totalSum;
-  //if(diff <= 57) {
-  //} else {
-  //  document.getElementById('hint').classList.add('hide')
-  //};
 
-  basketContent.innerHTML = `
 
-  <div id="hint" class="hint">
-    <div>Benötigter Betrag, um den Mindestbestellwert zu erreichen</div>
-    <div>
-      <p>${diff.toFixed(2).replace('.', ',')}</p>
-      <p>€</p>
-    </div>
-  </div>`;
 
-} */
 
-/* function renderBasektCalculation(){
 
-  let sum = 0;
-  sum += prices[i] * amounts[i];
-  let totalSum = sum + 5;
-
-  basketContent.innerHTML = `
-  <div id="calculation" class="calculation">
-      <div>
-        <div>
-          <div>
-            <div>
-              <p>Zwischensumme</p>
-            </div>
-            <div>
-              <p>${sum.toFixed(2).replace('.', ',')}</p>
-              <p class="eur">€</p>
-            </div>
-          </div>
-          <div>
-            <p>Lieferkosten</p>
-            <p>5.00 €</p>
-          </div>
-          <div>
-            <div>Gesamt</div>
-            <div>
-              <p>${totalSum.toFixed(2).replace('.', ',')}</p>
-              <p class="eur">€</p>
-            </div>
-          </div>
-        </div>
-        <button type="button">Bezahlen (${totalSum.toFixed(2).replace('.', ',')} €)</button>
-      </div>
-    </div>`;
-} */
 
 
 

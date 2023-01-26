@@ -2,7 +2,7 @@
     --orange: rgb(255, 128, 0);
     --black: rgb(36, 46, 48);
     --darkGrey: rgb(48, 61, 63);
-    --lightGrey: rgb(232, 232, 232);
+    --lightGrey: rgb(240, 239, 239);
     --green: green;
     --background: rgb(252, 252, 252);
     --border: rgb(219, 217, 215);
@@ -19,6 +19,7 @@ body {
     font-family: JETSansDigital, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 16px;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 /* ================================ HEADER ================================ */
@@ -58,6 +59,7 @@ header>div:first-of-type>p {
 header>div:nth-of-type(2) {
     font-weight: bold;
     color: var(--black);
+    font-size: 1.2rem;
 }
 
 header>div:last-of-type {
@@ -228,6 +230,69 @@ header>div:last-of-type>div {
     margin-right: 0.5rem;
 }
 
+
+.filter {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+}
+
+.filter>div:first-of-type {
+    border-radius: 50%;
+    background-color: rgb(245, 243, 241);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter>div:last-of-type {
+    border-radius: 50%;
+    background-color: rgb(245, 243, 241);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter img {
+    height: 25px;
+    width: auto;
+}
+
+.filter>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter>div:nth-of-type(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.filter>div:nth-of-type(2) a {
+    text-decoration: none;
+    color: black;
+}
+
+.filter>div:nth-of-type(2)>div {
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 0.5rem;
+}
+
+.filter>div:nth-of-type(2)>div:hover {
+    background-color: var(--buttonBackground);
+}
+
 /* ============================== WARENKORB ================================== */
 
 .basket {
@@ -243,7 +308,10 @@ header>div:last-of-type>div {
     justify-content: flex-start;
     z-index: 5;
     padding: 1rem;
-    padding-top: 1.5rem;
+}
+
+.basket>div:first-of-type>h1 {
+    font-size: 1.8rem;
 }
 
 .basket>div:last-of-type {
@@ -255,6 +323,11 @@ header>div:last-of-type>div {
 
 .basket>div:last-of-type>p {
     text-align: center;
+}
+
+.basket>div:last-of-type>p:first-of-type {
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .basket>div:last-of-type>img {
@@ -304,13 +377,30 @@ header>div:last-of-type>div {
     padding-left: 1.6rem;
 }
 
+.item>div>div:last-of-type>div:last-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item>div>div:last-of-type>div:last-of-type>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: var(--buttonBackground);
+    padding: 3px;
+    margin-left: 0.5rem;
+}
+
 .item>div>div:last-of-type img {
-    height: 30px;
+    height: 22px;
     width: auto;
     cursor: pointer;
     border-radius: 50%;
-    margin-left: 0.5rem;
-    background-color: var(--buttonBackground);
 }
 
 .item>div>div:last-of-type img:hover {
@@ -404,6 +494,7 @@ header>div:last-of-type>div {
     border: none;
     font-weight: bold;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 
@@ -488,7 +579,7 @@ header>div:last-of-type>div {
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    background-color: var(--background);
+    background-color: var(--buttonBackground);
     padding: 3px;
 }
 
@@ -506,4 +597,8 @@ header>div:last-of-type>div {
     margin-top: 1rem;
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+.price>p:last-of-type {
+    margin-left: 0.5rem;
 }
