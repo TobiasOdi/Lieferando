@@ -1,5 +1,5 @@
 :root {
-    --orange: rgb(255, 128, 0);
+    --orange: #ff8000;
     --black: rgb(36, 46, 48);
     --darkGrey: rgb(48, 61, 63);
     --lightGrey: rgb(240, 239, 239);
@@ -8,12 +8,6 @@
     --border: rgb(219, 217, 215);
     --buttonBackground: rgb(245, 243, 241);
 }
-
-/*   INFOS FÜR SEITE
-- Variablen verwenden in den Selektoren => color: var(--orange);
-- Warenkorb verschweindet am 1025px
- 
-*/
 
 body {
     font-family: JETSansDigital, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -51,7 +45,7 @@ header>div:first-of-type {
 
 header>div:first-of-type>p {
     padding-left: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: var(--orange);
 }
@@ -59,7 +53,7 @@ header>div:first-of-type>p {
 header>div:nth-of-type(2) {
     font-weight: bold;
     color: var(--black);
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 header>div:last-of-type {
@@ -77,10 +71,9 @@ header>div:last-of-type>div {
 }
 
 .sprache {
-    height: 1.8rem;
-    width: 1.8rem;
+    height: 1.5rem;
+    width: 1.5rem;
     cursor: pointer;
-
 }
 
 .burger {
@@ -88,14 +81,14 @@ header>div:last-of-type>div {
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
-    height: 1.8rem;
-    width: 1.8rem;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 .burger>div {
     background-color: var(--darkGrey);
     height: 3px;
-    width: 1.8rem;
+    width: 1.5rem;
     margin-bottom: 4px;
     border-radius: 1px;
 }
@@ -179,6 +172,12 @@ header>div:last-of-type>div {
     width: auto;
     fill: var(--orange);
     margin-right: 0.2rem;
+    color: var(--orange);
+}
+
+.bewertung>div:nth-of-type(5)>img {
+    height: 14px;
+    width: auto;
 }
 
 .bewertung>div:last-of-type {
@@ -198,12 +197,14 @@ header>div:last-of-type>div {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .lieferInfos>div {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    min-width: 115px;
 }
 
 .lieferInfos>div>p {
@@ -276,6 +277,31 @@ header>div:last-of-type>div {
     align-items: center;
     overflow: hidden;
 }
+
+.filter1 {
+    min-width: 48px;
+}
+
+.filter2 {
+    min-width: 86px;
+}
+
+.filter3 {
+    min-width: 149px;
+}
+
+.filter4 {
+    min-width: 52px;
+}
+
+.filter5 {
+    min-width: 193px;
+}
+
+.filter6 {
+    min-width: 158px;
+}
+
 
 .filter>div:nth-of-type(2) a {
     text-decoration: none;
@@ -375,6 +401,7 @@ header>div:last-of-type>div {
 .item>div>div:last-of-type>div:first-of-type {
     text-decoration: underline;
     padding-left: 1.6rem;
+    font-size: 0.8rem;
 }
 
 .item>div>div:last-of-type>div:last-of-type {
@@ -505,13 +532,10 @@ header>div:last-of-type>div {
     padding-left: 10%;
     padding-right: 10%;
     background-color: var(--background);
+    box-sizing: border-box;
 }
 
 .categorie {
-    width: 100%;
-}
-
-.categorie>div {
     width: 100%;
 }
 
@@ -530,7 +554,6 @@ header>div:last-of-type>div {
     border: 1px solid var(--border);
     border-radius: 20px;
     cursor: pointer;
-    width: 100%;
 }
 
 .categorie>div>div:hover {
@@ -601,4 +624,138 @@ header>div:last-of-type>div {
 
 .price>p:last-of-type {
     margin-left: 0.5rem;
+}
+
+/* ====================================================== FOOTER ======================================================= */
+
+footer {
+    height: 150px;
+    background-color: var(--lightGrey);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+footer>div:first-of-type {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+footer>div:first-of-type>div:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+footer>div:last-of-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* ====================================================== Mobile Ansicht ======================================================= */
+
+
+.overlayBasket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    height: 70px;
+    width: 100%;
+    padding: 1rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-top: 1px solid var(--border);
+    background-color: var(--background);
+}
+
+.overlayBasket>div {
+    width: 100%;
+}
+
+.overlayBasket button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+    border-radius: 30px;
+    height: 2.5rem;
+    background-color: var(--orange);
+    border: none;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.overlayBasket button>div:first-of-type {
+    background-image: url(./img/icons/einkaufskorb.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+}
+
+.overlayBasket button>div:first-of-type>div {
+    position: relative;
+    top: -3px;
+    left: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+}
+
+.overlayBasket button>div:first-of-type>div>div {
+    color: white;
+    font-size: 0.8rem;
+}
+
+.overlayBasket button>div:last-of-type {
+    margin-left: 0.6rem;
+}
+
+
+
+/* ====================================================== RESPONSIVENESS ======================================================= */
+
+@media(max-width: 1300px) {
+    .gerichte {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+
+@media(max-width: 1025px) {
+    .basket {
+        display: none;
+    }
+
+    .main>section:first-of-type {
+        width: 100%;
+    }
+}
+
+@media(max-width: 720px) {
+    header>div:last-of-type>div:first-of-type {
+        display: none;
+    }
+
+    header>div:first-of-type>p {
+        display: none;
+
+    }
+
 }

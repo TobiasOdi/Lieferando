@@ -13,6 +13,12 @@ let foods = [
     'price': 9.90
 },
 
+{   'categorie': 'Beliebt',
+    'title': 'Sake Avocado Maki',
+    'description': 'mit Lachs und Avocado',
+    'price': 4.70
+},
+
 {   'categorie': 'Sushi Menüs',
     'title': 'Menü (für 2 Personen)',
     'description': '2 Miso Soup, 8 Sake inside outs, 8 Sake Rolls, 8 Kani Rolls, 6 Sake Maki, 6 Clifornia Maki, 2 Sake Nigiri, 2 Maguro Nigiri',
@@ -23,6 +29,12 @@ let foods = [
     'title': 'Menü (für 4 Personen)',
     'description': '4 Miso Soup, 16 Sake inside outs, 16 Sake Rolls, 16 Kani Rolls, 12 Sake Maki, 12 Clifornia Maki, 4 Sake Nigiri, 4 Maguro Nigiri',
     'price': 90.00
+},
+
+{   'categorie': 'Sushi Menüs',
+    'title': 'Fitness Menü',
+    'description': '8 Inside Out mit verschiedenem Gemüse, 6 Makis Avocado (Vegetarisch)',
+    'price': 12.90
 }
 ]; 
 
@@ -138,6 +150,7 @@ function renderBasket() {
             dein Essen.
           </p>
     </div>`;
+    
   } else {
     basketContent.innerHTML = `
     <div>
@@ -178,12 +191,13 @@ function renderBasket() {
             <div>Anmerkung hizufügen</div>
             <div>
               <div>
-              <img onclick="removeFromBasket(${i})" src="./img/icons/minus.png" alt="Icon eines Minus Zeichens"
-              />
+                <img onclick="deleteFromBasket(${i})" src="./img/icons/delete.png" alt="Icon eines Minus Zeichens"/>
               </div>
               <div>
-              <img onclick="addToBasket(${i})" src="./img/icons/plus.png" alt="Icon eines Plus Zeichens"
-              />
+                <img onclick="removeFromBasket(${i})" src="./img/icons/minus.png" alt="Icon eines Minus Zeichens"/>
+              </div>
+              <div>
+                <img onclick="addToBasket(${i})" src="./img/icons/plus.png" alt="Icon eines Plus Zeichens"/>
               </div>
             </div>
           </div>
