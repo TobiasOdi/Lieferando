@@ -94,6 +94,7 @@ let prices = [];
 let amounts = [];
 let amount = 1;
 
+let mobileBasket = window.matchMedia('(max-width: 1025px)')
 
 function addToBasekt(i) {
 let t = basket.indexOf(foods[i]['title']); // Index 0
@@ -107,6 +108,17 @@ if(t == -1) {
 }
   renderBasket();
   save();
+}
+
+setInterval(showMobileBasket, 500);
+
+function showMobileBasket() {
+  if (mobileBasket.matches && basket.length > 0) {
+    document.getElementById('overlayBasket').classList.add('showOverlayBasket');
+    renderMobileBasket();
+  } else {
+    document.getElementById('overlayBasket').classList.remove('showOverlayBasket');
+  };
 }
 
 function save() {
@@ -130,12 +142,16 @@ function load() {
 /* =================================== RENDER WARENKORB ======================================= */
 
 function renderBasket() {
+  let totalItemPrice = 0;
+  let amount = 0;
+  let price = 0;
+
   let basketContent = document.getElementById('basketContent');
   basketContent.innerHTML = '';
 
   if(basket.length == 0){
 
-    basketContent = `
+    basketContent.innerHTML = `
     <div>
         <h1>Warenkorb</h1>
         </div>
@@ -159,19 +175,12 @@ function renderBasket() {
 
     for (let i = 0; i < basket.length; i++) {
       const item = basket[i];
-      const price = prices[i];
+      price = prices[i];
       let priceFormatted = price.toFixed(2).replace('.', ',');
-      const amount = amounts[i];
+      amount = amounts[i];
 
-      let totalItemPrice = prices[i] * amounts[i];
+      totalItemPrice = prices[i] * amounts[i];
       let totalItemPriceFormatted = totalItemPrice.toFixed(2).replace('.', ',');
-
-      //let sum = 0;
-      //sum += prices[i] * amounts[i];
-      //let totalSum = sum + 5;
-
-      //let diff = 57 - totalSum;
-      //let diffFormatted = diff.toFixed(2).replace('.', ',');
       
       basketContent.innerHTML += `
     <div id="items" class="items">
@@ -205,46 +214,42 @@ function renderBasket() {
       </div>
     </div>`;
   }
-
   renderBasketHint();
   renderBasektCalculation();
 }
 }
 
 function renderBasketHint() {
-  //let sum = 0;
-  //sum += prices[i] * amounts[i];
-  //let totalSum = sum + 5;
+  let sum = 0;
+  let minOrder = 57;
 
+  for(let i=0; i < prices.length; i++) {
+    const product = (prices[i] * amounts[i]);
+    sum += product;
+  };
 
-  let diff = 57 
-  
-  //- totalSum;
-  //if(diff <= 57) {
-  //} else {
-  //  document.getElementById('hint').classList.add('hide')
-  //};
-
-  basketContent.innerHTML += `
-
-  <div id="hint" class="hint">
-    <div>Benötigter Betrag, um den Mindestbestellwert zu erreichen</div>
-    <div>
-      <p>${diff.toFixed(2).replace('.', ',')}</p>
-      <p>€</p>
-    </div>
-  </div>`;
-
+  if (sum <= minOrder) {
+    basketContent.innerHTML += `
+    <div id="hint" class="hint">
+      <div>Benötigter Betrag, um den Mindestbestellwert zu erreichen</div>
+      <div>
+        <p>${minOrder.toFixed(2).replace('.', ',')}</p>
+        <p>€</p>
+      </div>
+    </div>`;
+  } else {
+  };
 }
 
 function renderBasektCalculation(){
-
   let sum = 0;
-  //sum += prices[i] * amounts[i];
 
-  sum = prices.reduce((partialSum, a) => partialSum + a, 0);
+  for(let i=0; i < prices.length; i++) {
+    const product = (prices[i] * amounts[i]);
+    sum += product;
+  };
 
-  let totalSum = sum + 5;
+  totalSum = sum + 5;
 
   basketContent.innerHTML += `
   <div id="calculation" class="calculation">
@@ -261,7 +266,7 @@ function renderBasektCalculation(){
           </div>
           <div>
             <p>Lieferkosten</p>
-            <p>5.00 €</p>
+            <p>5,00 €</p>
           </div>
           <div>
             <div>Gesamt</div>
@@ -276,6 +281,40 @@ function renderBasektCalculation(){
     </div>`;
 } 
 
+function renderMobileBasket() {
+    let overlayBasket = document.getElementById('overlayBasket');
+
+    let totalAmount = 0;
+    totalAmount = amounts.reduce((a, b) => a + b, 0);
+
+    let sum = 0;
+    for(let i=0; i < prices.length; i++) {
+      const product = (prices[i] * amounts[i]);
+      sum += product;
+    };
+    totalSum = sum + 5;
+
+      overlayBasket.innerHTML = `
+      <div>
+        <button type="button" onclick="fullSizeBasket()">
+          <div>
+            <div>
+              <div>
+                ${totalAmount}
+              </div>
+            </div>
+          </div>
+          <div>
+            Warenkorb (${totalSum.toFixed(2).replace('.', ',')} €)
+          </div>
+        </button>
+      </div>`;
+  }
+
+function fullSizeBasket() {
+    let fullSizeBasket = document.getElementById('basketContent');
+    fullSizeBasket.classList.add("fullSize");
+  }
 
 function deleteFromBasket(i) {
     basket.splice(i, 1);
@@ -284,7 +323,7 @@ function deleteFromBasket(i) {
 
     renderBasket();
     save();
-}
+  }
 
 function removeFromBasket(i) {
 
@@ -295,16 +334,19 @@ function removeFromBasket(i) {
       prices.splice(i, 1);
       amounts.splice(i, 1);
     }
-
     renderBasket();
     save();
-}
+  }
 
 function addToBasket(i) {
   amounts[i]++; 
   
   renderBasket();
   save();
+}
+
+function openBasket() {
+  document.getElementById('basketContent').classList.add('fullSizeBasket');
 }
 
 

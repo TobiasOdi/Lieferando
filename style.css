@@ -332,7 +332,6 @@ header>div:last-of-type>div {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    z-index: 5;
     padding: 1rem;
 }
 
@@ -659,7 +658,7 @@ footer>div:last-of-type {
 
 
 .overlayBasket {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
@@ -683,7 +682,6 @@ footer>div:last-of-type {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 0.5rem;
     border-radius: 30px;
     height: 2.5rem;
     background-color: var(--orange);
@@ -726,6 +724,21 @@ footer>div:last-of-type {
     margin-left: 0.6rem;
 }
 
+.showOverlayBasket {
+    display: block;
+}
+
+.fullSize {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-shadow: none;
+    z-index: 10;
+    background-color: white;
+}
 
 
 /* ====================================================== RESPONSIVENESS ======================================================= */
@@ -735,8 +748,17 @@ footer>div:last-of-type {
         padding-left: 5%;
         padding-right: 5%;
     }
-}
 
+    .restaurant>div:last-of-type {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .backgroundImg {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
 
 @media(max-width: 1025px) {
     .basket {

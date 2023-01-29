@@ -11,11 +11,7 @@
   <body onload="render(), load()">
     <header>
       <div>
-        <img
-          class="logo"
-          src="./img/icons/home.png"
-          alt="Icon eines Hauses"
-        />
+        <img class="logo" src="./img/icons/home.png" alt="Icon eines Hauses" />
         <p>Lieferando</p>
       </div>
       <div><p>Speisekarte</p></div>
@@ -99,7 +95,7 @@
 
             <div class="filter">
               <div>
-                <img src="./img/icons/left-chevron.png">
+                <img src="./img/icons/left-chevron.png" />
               </div>
               <div>
                 <div class="filter1"><a href="#beliebt">Beliebt</a></div>
@@ -110,7 +106,7 @@
                 <div class="filter6">Gebratene Reisgerichte</div>
               </div>
               <div>
-                <img src="./img/icons/right-chevron.png">
+                <img src="./img/icons/right-chevron.png" />
               </div>
             </div>
           </div>
@@ -176,7 +172,9 @@
           <h1>Warenkorb</h1>
         </div>
         <div>
-          <img src="./img/icons/einkaufstasche.png" alt="Icon einr Einkaufstasche"
+          <img
+            src="./img/icons/einkaufstasche.png"
+            alt="Icon einr Einkaufstasche"
           />
           <p>Fülle deinen Warenkorb</p>
           <p>
@@ -272,9 +270,10 @@
       </div>
     </footer>
 
-    <div class="overlayBasket">
-      <div>
-        <button type="button">
+    <div id="overlayBasket" class="overlayBasket"></div>
+
+    <!-- <div>
+        <button type="button" onclick="openBasket">
           <div>
             <div>
               <div>
@@ -286,8 +285,7 @@
             Warenkorb (${totalSum.toFixed(2).replace('.', ',')} €)
           </div>
         </button>
-      </div>
-    </div>
+      </div> -->
 
     <script src="./script.js"></script>
   </body>
