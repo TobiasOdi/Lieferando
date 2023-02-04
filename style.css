@@ -333,10 +333,35 @@ header>div:last-of-type>div {
     align-items: center;
     justify-content: flex-start;
     padding: 1rem;
+    box-sizing: border-box;
 }
 
-.basket>div:first-of-type>h1 {
+.basket>div:first-of-type {
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+    width: 100%;
+}
+
+.basketTitle {
     font-size: 1.8rem;
+}
+
+.close {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid black;
+    background-color: var(--buttonBackground);
+    cursor: pointer;
+    padding: 3px;
+}
+
+.close>img {
+    border: 50%;
+    height: 20px;
+    width: auto;
 }
 
 .basket>div:last-of-type {
@@ -730,7 +755,7 @@ footer>div:last-of-type {
 
 .fullSize {
     display: block !important;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -767,6 +792,13 @@ footer>div:last-of-type {
 
     .main>section:first-of-type {
         width: 100%;
+    }
+
+    .basket>div:first-of-type {
+        justify-content: space-between;
+    }
+    .close {
+        display: flex;
     }
 }
 

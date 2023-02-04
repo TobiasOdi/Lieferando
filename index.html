@@ -8,7 +8,10 @@
 
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <body onload="render(), load()">
+
+  <body onload="render(), load(), renderBasket()">
+
+    <!-- ======================================= HEADER ================================================ -->
     <header>
       <div>
         <img class="logo" src="./img/icons/home.png" alt="Icon eines Hauses" />
@@ -31,6 +34,7 @@
       </div>
     </header>
 
+    <!-- ======================================= RESTAURANT INFORMATIONEN ================================================ -->
     <section class="main">
       <section>
         <section class="restaurant">
@@ -93,6 +97,8 @@
               </div>
             </div>
 
+
+    <!-- ======================================= FILTER BAR ================================================ -->
             <div class="filter">
               <div>
                 <img src="./img/icons/left-chevron.png" />
@@ -112,151 +118,35 @@
           </div>
         </section>
 
-        <section id="content" class="gerichte">
+    <!-- ======================================= GERICHTE ================================================ -->
+    <section id="content" class="gerichte">
           <div>
             <div class="categorie">
               <h1 id="beliebt">Beliebt</h1>
               <div id="favorites">
-                <!-- <div>
-                  <div>
-                    <div>
-                      <h1>Mi Ga Chien Gion</h1>
-                      <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
-                    </div>
-                    <div>
-                      <img onclick="addToBasekt()" src="./img/icons/plus.png" alt=""/>
-                    </div>
-                  </div>
-                  <p>
-                    gebratene Nudeln mit paniertem Hühnerfleisch, Gemüse und
-                    Erdnusssauce
-                  </p>
-                  <div class="price">
-                    <p>12,90</p>
-                    <p>€</p>
-                  </div>
-                </div> -->
+     
               </div>
             </div>
 
             <div class="categorie">
               <h1>Sushi Menüs</h1>
               <div id="sushiMenues">
-                <!-- <div>
-                  <div>
-                    <div>
-                      <h1>Mi Ga Chien Gion</h1>
-                      <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
-                    </div>
-                    <div>
-                      <img onclick="addDish()" src="./img/icons/plus.png" alt=""/>
-                    </div>
-                  </div>
-                  <p>
-                    gebratene Nudeln mit paniertem Hühnerfleisch, Gemüse und
-                    Erdnusssauce
-                  </p>
-                  <div class="price">
-                    <p>12,90</p>
-                    <p>€</p>
-                  </div>
-                </div> -->
+           
               </div>
             </div>
           </div>
         </section>
       </section>
 
+    <!-- ======================================= WARENKORB ================================================ -->
       <aside id="basketContent" class="basket">
-        <div>
-          <h1>Warenkorb</h1>
-        </div>
-        <div>
-          <img
-            src="./img/icons/einkaufstasche.png"
-            alt="Icon einr Einkaufstasche"
-          />
-          <p>Fülle deinen Warenkorb</p>
-          <p>
-            Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle
-            dein Essen.
-          </p>
-        </div>
+
       </aside>
     </section>
 
     <div class="Impressum"></div>
 
-    <!-- ==================================== WARENKORB INHALT ============================================ -->
-
-    <!-- <div id="items" class="items">
-      <div id="item" class="item">
-        <div>
-          <div>
-            <div>
-              <p>1</p>
-              <p>Mi Ga Chien Gion</p>
-            </div>
-            <div>
-              <p>Preis</p>
-              <p class="eur">€</p>
-            </div>
-          </div>
-          <div>
-            <div>Anmerkung hizufügen</div>
-            <div>
-              <img
-                onclick="addToBasket()"
-                src="./img/icons/minus.png"
-                alt="Icon eines Minus Zeichens"
-              />
-              <img
-                onclick="removeFromBasket()"
-                src="./img/icons/plus.png"
-                alt="Icon eines Plus Zeichens"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hint" class="show">
-      <div>Benötigter Betrag, um den Mindestbestellwert zu erreichen</div>
-      <div>
-        <p>Diff</p>
-        <p>€</p>
-      </div>
-    </div>
-
-    <div id="calculation" class="calculation">
-      <div>
-        <div>
-          <div>
-            <div>
-              <p>Zwischensumme</p>
-            </div>
-            <div>
-              <p>Preis Summe</p>
-              <p class="eur">€</p>
-            </div>
-          </div>
-          <div>
-            <p>Lieferkosten</p>
-            <p>Kostenlos</p>
-          </div>
-          <div>
-            <div>Gesamt</div>
-            <div>
-              <p>Preis total</p>
-              <p class="eur">€</p>
-            </div>
-          </div>
-        </div>
-        <button type="button">Bezahlen (Preis total €)</button>
-      </div>
-    </div> -->
-
+    <!-- ========================================== FOOTER ================================================ -->
     <footer>
       <div>
         <div>Ein Restaurant empfehlen</div>
@@ -270,22 +160,11 @@
       </div>
     </footer>
 
-    <div id="overlayBasket" class="overlayBasket"></div>
 
-    <!-- <div>
-        <button type="button" onclick="openBasket">
-          <div>
-            <div>
-              <div>
-                1
-              </div>
-            </div>
-          </div>
-          <div>
-            Warenkorb (${totalSum.toFixed(2).replace('.', ',')} €)
-          </div>
-        </button>
-      </div> -->
+    <!-- =================================== MOBILE BASKET OVERLAY ======================================= -->
+    <div id="overlayBasket" class="overlayBasket">
+      
+    </div>
 
     <script src="./script.js"></script>
   </body>

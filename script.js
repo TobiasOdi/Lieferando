@@ -59,7 +59,6 @@ for (let i = 0; i < foods.length; i++) {
 }
 
 function renderTemplate(i) {
-
     return `
               <div>
                 <div class="foodTitle">
@@ -88,13 +87,11 @@ function openInfo() {
 }
 
 /* =================================== GERICHT ZUM WARENKORB HINZUFÜGEN ======================================= */
-
 let basket = [];
 let prices = [];
 let amounts = [];
 let amount = 1;
-
-let mobileBasket = window.matchMedia('(max-width: 1025px)')
+let mobileBasket = window.matchMedia('(max-width: 1025px)');
 
 function addToBasekt(i) {
 let t = basket.indexOf(foods[i]['title']); // Index 0
@@ -110,7 +107,6 @@ if(t == -1) {
   save();
 }
 
-setInterval(showMobileBasket, 500);
 
 function showMobileBasket() {
   if (mobileBasket.matches && basket.length > 0) {
@@ -120,6 +116,8 @@ function showMobileBasket() {
     document.getElementById('overlayBasket').classList.remove('showOverlayBasket');
   };
 }
+
+setInterval(showMobileBasket, 500);
 
 function save() {
   let basketAsText = JSON.stringify(basket);       
@@ -131,12 +129,15 @@ function save() {
 }
 
 function load() {
-  let basketAsText = JSON.stringify(basket);       
-  localStorage.setItem('basket', basketAsText); 
-  let pricesAsText = JSON.stringify(prices);       
-  localStorage.setItem('prices', pricesAsText); 
-  let amountsAsText = JSON.stringify(amounts);       
-  localStorage.setItem('amounts', amountsAsText); 
+  let basketAsText = localStorage.getItem('basket');
+  let pricesAsText = localStorage.getItem('prices');
+  let amountsAsText = localStorage.getItem('amounts');
+
+  if (basketAsText && pricesAsText && amountsAsText) {
+    basket = JSON.parse(basketAsText);
+    prices = JSON.parse(pricesAsText);
+    amounts = JSON.parse(amountsAsText);
+  }
 }
 
 /* =================================== RENDER WARENKORB ======================================= */
@@ -150,27 +151,33 @@ function renderBasket() {
   basketContent.innerHTML = '';
 
   if(basket.length == 0){
-
     basketContent.innerHTML = `
     <div>
-        <h1>Warenkorb</h1>
-        </div>
-        <div>
-          <img
-            src="./img/icons/einkaufstasche.png"
-            alt="Icon einr Einkaufstasche"
-          />
-          <p>Fülle deinen Warenkorb</p>
-          <p>
-            Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle
-            dein Essen.
-          </p>
+      <div>
+        <h1 class="basketTitle">Warenkorb</h1>
+      </div>
+      <div class="close" onclick="closeBasket()">
+        <img src="./img/icons/close.png">
+      </div>
+    </div>
+    <div>
+      <img src="./img/icons/einkaufstasche.png" alt="Icon einr Einkaufstasche" />
+      <p>Fülle deinen Warenkorb</p>
+      <p>
+        Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle
+        dein Essen.
+      </p>
     </div>`;
-    
+
   } else {
     basketContent.innerHTML = `
     <div>
-      <h1>Warenkorb</h1>
+      <div>
+        <h1 class="basketTitle">Warenkorb</h1>
+      </div>
+      <div class="close" onclick="closeBasket()">
+        <img src="./img/icons/close.png">
+      </div>
     </div>`;
 
     for (let i = 0; i < basket.length; i++) {
@@ -213,11 +220,13 @@ function renderBasket() {
         </div>
       </div>
     </div>`;
+    }
+    renderBasketHint();
+    renderBasektCalculation();
+
   }
-  renderBasketHint();
-  renderBasektCalculation();
 }
-}
+
 
 function renderBasketHint() {
   let sum = 0;
@@ -345,8 +354,8 @@ function addToBasket(i) {
   save();
 }
 
-function openBasket() {
-  document.getElementById('basketContent').classList.add('fullSizeBasket');
+function closeBasket() {
+  document.getElementById('basketContent').classList.remove('fullSize');
 }
 
 
