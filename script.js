@@ -64,7 +64,7 @@ function renderTemplate(i) {
                 <div class="foodTitle">
                   <div>
                     <h1>${foods[i]['title']}</h1>
-                    <img onclick="openInfo()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
+                    <img onclick="moreInformation()" src="./img/icons/information (1).png" alt="icon eines Informationssymbols"/>
                   </div>
                   <div>
                     <img onclick="addToBasekt(${i})" src="./img/icons/plus.png" alt="" />
@@ -81,11 +81,16 @@ function renderTemplate(i) {
 }
 
 /* =================================== INFORMATION ÖFFNEN ======================================= */
-function openInfo() {
-
+function moreInformation() {
+document.getElementById('productInfoBackground').classList.add('showProductInfoBackground');
+document.getElementById('productInfo').classList.add('showProductInfo');
 
 }
 
+function closeInfo() {
+  document.getElementById('productInfoBackground').classList.remove('showProductInfoBackground');
+  document.getElementById('productInfo').classList.remove('showProductInfo');
+}
 /* =================================== GERICHT ZUM WARENKORB HINZUFÜGEN ======================================= */
 let basket = [];
 let prices = [];
@@ -223,10 +228,8 @@ function renderBasket() {
     }
     renderBasketHint();
     renderBasektCalculation();
-
   }
 }
-
 
 function renderBasketHint() {
   let sum = 0;

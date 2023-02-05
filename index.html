@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
 
-  <body onload="render(), load(), renderBasket()">
+  <body id="body" onload="render(), load(), renderBasket()">
 
     <!-- ======================================= HEADER ================================================ -->
     <header>
@@ -159,6 +159,65 @@
         <div>© 2023</div>
       </div>
     </footer>
+
+      <div class="productInfo">
+        <div> 
+          <h1></h1>
+          <div>
+            <img src="./img/icons/close.png">
+          </div>
+        </div>
+        <div>
+          <h2></h2>
+        </div>
+        <div >
+          <table class="allergenic ">
+            <td>Enthält Senf/-Erzeugnisse</td>
+            <td>Enthält Fisch/-Erzeugnisse</td>
+            <td>Enthält glutenhaltige/s Getreide/-Erzeugnisse</td>
+            <td>Weizen</td>
+          </table>
+        </div>
+        <div>
+          Wir stellen dir stets relevante Informationen zur Verfügung, die wir von unseren Partnern über deren Produkte erhalten. In einigen Fällen können die angezeigten Informationen jedoch unvollständig, automatisch generiert und/oder noch nicht von Mai Wok Sushi validiert worden sein. Bitte wende dich über dieses Formular an unseren Kundenservice, wenn du Allergien, Unverträglichkeiten oder Fragen zu bestimmten Artikeln hast.
+        </div>
+      </div>
+
+      <!-- =================================== ALLERGIE INFO ======================================= -->
+
+
+      <div id="productInfoBackground" class="productInfoBackground">
+      </div>
+
+      <div id="productInfo" class="productInfo">
+        <div>
+          <div> 
+            <h1>Weitere Produktinformationen</h1>
+          </div>
+          <div onclick="closeInfo()">
+            <img src="./img/icons/close.png">
+          </div>
+        </div>
+        <div>
+          <h2>Allergene</h2>
+        </div>
+        <div >
+          <ul class="allergenic">
+            <li>Enthält Senf/-Erzeugnisse</li>
+            <li>Enthält Fisch/-Erzeugnisse</li>
+            <li>Enthält glutenhaltige/s Getreide/-Erzeugnisse</li>
+            <li>Weizen</li>
+          </ul>
+        </div>
+        <div>
+          Wir stellen dir stets relevante Informationen zur Verfügung, die wir von unseren Partnern über deren Produkte erhalten. In einigen Fällen können die angezeigten Informationen jedoch unvollständig, automatisch generiert und/oder noch nicht von Mai Wok Sushi validiert worden sein. Bitte wende dich über dieses Formular an unseren Kundenservice, wenn du Allergien, Unverträglichkeiten oder Fragen zu bestimmten Artikeln hast.
+        </div>
+      </div>
+
+
+
+
+
 
 
     <!-- =================================== MOBILE BASKET OVERLAY ======================================= -->
