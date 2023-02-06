@@ -1,4 +1,3 @@
-/* =================================== RENDER FOODS ======================================= */
 let foods = [
 
 {   'categorie': 'Beliebt',
@@ -38,7 +37,8 @@ let foods = [
 }
 ]; 
 
-function render() {
+/* ====================================================== RENDER GERICHTE ======================================================= */
+function renderFoods() {
 
 for (let i = 0; i < foods.length; i++) {
     let dishCategorie = foods[i]['categorie'];
@@ -50,15 +50,15 @@ for (let i = 0; i < foods.length; i++) {
     let sushiMenues = document.getElementById('sushiMenues').innerHTML;
 
   if(dishCategorie.includes('Beliebt')) {
-    document.getElementById('favorites').innerHTML += renderTemplate(i);
+    document.getElementById('favorites').innerHTML += renderFoodsTemplate(i);
 
   } else if(dishCategorie.includes('Sushi Menüs')) {
-    document.getElementById('sushiMenues').innerHTML += renderTemplate(i);
+    document.getElementById('sushiMenues').innerHTML += renderFoodsTemplate(i);
   }
 }
 }
 
-function renderTemplate(i) {
+function renderFoodsTemplate(i) {
     return `
               <div>
                 <div class="foodTitle">
@@ -80,18 +80,18 @@ function renderTemplate(i) {
               <div>`;
 }
 
-/* =================================== INFORMATION ÖFFNEN ======================================= */
+/* ====================================================== ALLERGIE INFO ======================================================= */
 function moreInformation() {
 document.getElementById('productInfoBackground').classList.add('showProductInfoBackground');
 document.getElementById('productInfo').classList.add('showProductInfo');
-
 }
 
 function closeInfo() {
   document.getElementById('productInfoBackground').classList.remove('showProductInfoBackground');
   document.getElementById('productInfo').classList.remove('showProductInfo');
 }
-/* =================================== GERICHT ZUM WARENKORB HINZUFÜGEN ======================================= */
+
+/* ====================================================== GERICHT ZUM WARENKORB HINZUFÜGEN ================================================ */
 let basket = [];
 let prices = [];
 let amounts = [];
@@ -112,7 +112,7 @@ if(t == -1) {
   save();
 }
 
-
+/* ====================================================== MOBILER WARENKORB ======================================================= */
 function showMobileBasket() {
   if (mobileBasket.matches && basket.length > 0) {
     document.getElementById('overlayBasket').classList.add('showOverlayBasket');
@@ -124,6 +124,7 @@ function showMobileBasket() {
 
 setInterval(showMobileBasket, 500);
 
+/* ====================================================== ARRAYS SPEICHERN / LADEN ======================================================= */
 function save() {
   let basketAsText = JSON.stringify(basket);       
   localStorage.setItem('basket', basketAsText);     
@@ -145,45 +146,19 @@ function load() {
   }
 }
 
-/* =================================== RENDER WARENKORB ======================================= */
-
+/* ====================================================== RENDER WARENKORB ========================================================== */
 function renderBasket() {
   let totalItemPrice = 0;
   let amount = 0;
   let price = 0;
 
   let basketContent = document.getElementById('basketContent');
-  basketContent.innerHTML = '';
-
+ 
   if(basket.length == 0){
-    basketContent.innerHTML = `
-    <div>
-      <div>
-        <h1 class="basketTitle">Warenkorb</h1>
-      </div>
-      <div class="close" onclick="closeBasket()">
-        <img src="./img/icons/close.png">
-      </div>
-    </div>
-    <div>
-      <img src="./img/icons/einkaufstasche.png" alt="Icon einr Einkaufstasche" />
-      <p>Fülle deinen Warenkorb</p>
-      <p>
-        Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle
-        dein Essen.
-      </p>
-    </div>`;
+    basketContent.innerHTML = emptyBasketContent();
 
   } else {
-    basketContent.innerHTML = `
-    <div>
-      <div>
-        <h1 class="basketTitle">Warenkorb</h1>
-      </div>
-      <div class="close" onclick="closeBasket()">
-        <img src="./img/icons/close.png">
-      </div>
-    </div>`;
+    basketContent.innerHTML = fullBasketTitle();
 
     for (let i = 0; i < basket.length; i++) {
       const item = basket[i];
@@ -194,42 +169,109 @@ function renderBasket() {
       totalItemPrice = prices[i] * amounts[i];
       let totalItemPriceFormatted = totalItemPrice.toFixed(2).replace('.', ',');
       
-      basketContent.innerHTML += `
-    <div id="items" class="items">
-      <div id="item" class="item">
-        <div>
-          <div>
-            <div>
-              <p>${amount}</p>
-              <p>${item}</p>
-            </div>
-            <div>
-              <p>${totalItemPriceFormatted}</p>
-              <p class="eur">€</p>
-            </div>
-          </div>
-          <div>
-            <div>Anmerkung hizufügen</div>
-            <div>
-              <div>
-                <img onclick="deleteFromBasket(${i})" src="./img/icons/delete.png" alt="Icon eines Minus Zeichens"/>
-              </div>
-              <div>
-                <img onclick="removeFromBasket(${i})" src="./img/icons/minus.png" alt="Icon eines Minus Zeichens"/>
-              </div>
-              <div>
-                <img onclick="addToBasket(${i})" src="./img/icons/plus.png" alt="Icon eines Plus Zeichens"/>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>`;
+      basketContent.innerHTML += basketItems(amount, item, totalItemPriceFormatted, i);
     }
     renderBasketHint();
     renderBasektCalculation();
   }
 }
+
+function emptyBasketContent() {
+  return `
+      <div>
+        <div>
+          <h1 class="basketTitle">Warenkorb</h1>
+        </div>
+        <div class="close" onclick="closeBasket()">
+          <img src="./img/icons/close.png">
+        </div>
+      </div>
+      <div>
+        <img src="./img/icons/einkaufstasche.png" alt="Icon einr Einkaufstasche" />
+        <p>Fülle deinen Warenkorb</p>
+        <p>
+          Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle
+          dein Essen.
+        </p>
+      </div>`;
+} 
+
+function fullBasketTitle() {
+  return `
+      <div>
+        <div>
+          <h1 class="basketTitle">Warenkorb</h1>
+        </div>
+        <div class="close" onclick="closeBasket()">
+          <img src="./img/icons/close.png">
+        </div>
+      </div>`;
+}
+
+function basketItems(amount, item, totalItemPriceFormatted, i) {
+  return `
+      <div id="items" class="items">
+        <div id="item" class="item">
+          <div>
+            <div>
+              <div>
+                <p>${amount}</p>
+                <p>${item}</p>
+              </div>
+              <div>
+                <p>${totalItemPriceFormatted}</p>
+                <p class="eur">€</p>
+              </div>
+            </div>
+            <div>
+              <div>Anmerkung hizufügen</div>
+              <div>
+                <div>
+                  <img onclick="deleteItemFromBasket(${i})" src="./img/icons/delete.png" alt="Icon eines Minus Zeichens"/>
+                </div>
+                <div>
+                  <img onclick="removeItemFromBasket(${i})" src="./img/icons/minus.png" alt="Icon eines Minus Zeichens"/>
+                </div>
+                <div>
+                  <img onclick="addItemToBasket(${i})" src="./img/icons/plus.png" alt="Icon eines Plus Zeichens"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+}
+
+/* ====================================================== WARENKORB FUNKTIONEN ========================================================== */
+function deleteItemFromBasket(i) {
+  basket.splice(i, 1);
+  prices.splice(i, 1);
+  amounts.splice(i, 1);
+
+  renderBasket();
+  save();
+}
+
+function removeItemFromBasket(i) {
+  if(amounts[i] > 1) {
+    amounts[i]--; 
+  } else {
+    basket.splice(i, 1);
+    prices.splice(i, 1);
+    amounts.splice(i, 1);
+  }
+  renderBasket();
+  save();
+}
+
+function addItemToBasket(i) {
+amounts[i]++; 
+
+renderBasket();
+save();
+}
+
+/* ====================================================== RENDER WARENKORB LIEFERINFORAMTION ========================================================== */
 
 function renderBasketHint() {
   let sum = 0;
@@ -253,6 +295,7 @@ function renderBasketHint() {
   };
 }
 
+/* ====================================================== RENDER WARENKORB BERECHNUNG ========================================================== */
 function renderBasektCalculation(){
   let sum = 0;
 
@@ -263,36 +306,41 @@ function renderBasektCalculation(){
 
   totalSum = sum + 5;
 
-  basketContent.innerHTML += `
-  <div id="calculation" class="calculation">
-      <div>
-        <div>
-          <div>
-            <div>
-              <p>Zwischensumme</p>
-            </div>
-            <div>
-              <p>${sum.toFixed(2).replace('.', ',')}</p>
-              <p class="eur">€</p>
-            </div>
-          </div>
-          <div>
-            <p>Lieferkosten</p>
-            <p>5,00 €</p>
-          </div>
-          <div>
-            <div>Gesamt</div>
-            <div>
-              <p>${totalSum.toFixed(2).replace('.', ',')}</p>
-              <p class="eur">€</p>
-            </div>
-          </div>
-        </div>
-        <button type="button">Bezahlen (${totalSum.toFixed(2).replace('.', ',')} €)</button>
-      </div>
-    </div>`;
+  basketContent.innerHTML += showCalculation(sum, totalSum);
 } 
 
+function showCalculation(sum, totalSum) {
+  return `
+      <div id="calculation" class="calculation">
+          <div>
+            <div>
+              <div>
+                <div>
+                  <p>Zwischensumme</p>
+                </div>
+                <div>
+                  <p>${sum.toFixed(2).replace('.', ',')}</p>
+                  <p class="eur">€</p>
+                </div>
+              </div>
+              <div>
+                <p>Lieferkosten</p>
+                <p>5,00 €</p>
+              </div>
+              <div>
+                <div>Gesamt</div>
+                <div>
+                  <p>${totalSum.toFixed(2).replace('.', ',')}</p>
+                  <p class="eur">€</p>
+                </div>
+              </div>
+            </div>
+            <button type="button">Bezahlen (${totalSum.toFixed(2).replace('.', ',')} €)</button>
+          </div>
+        </div>`;
+}
+
+/* ====================================================== RENDER MOBILER WARENKORB ========================================================== */
 function renderMobileBasket() {
     let overlayBasket = document.getElementById('overlayBasket');
 
@@ -305,82 +353,37 @@ function renderMobileBasket() {
       sum += product;
     };
     totalSum = sum + 5;
-
-      overlayBasket.innerHTML = `
-      <div>
-        <button type="button" onclick="fullSizeBasket()">
-          <div>
-            <div>
-              <div>
-                ${totalAmount}
-              </div>
-            </div>
-          </div>
-          <div>
-            Warenkorb (${totalSum.toFixed(2).replace('.', ',')} €)
-          </div>
-        </button>
-      </div>`;
+    
+    overlayBasket.innerHTML = showOverlayBasket(totalAmount, totalSum);
   }
 
+  function showOverlayBasket(totalAmount, totalSum) {
+    return `
+        <div>
+          <button type="button" onclick="fullSizeBasket()">
+            <div>
+              <div>
+                <div>
+                  ${totalAmount}
+                </div>
+              </div>
+            </div>
+            <div>
+              Warenkorb (${totalSum.toFixed(2).replace('.', ',')} €)
+            </div>
+          </button>
+        </div>`;
+  }
+
+/* ====================================================== MOBILER WARENKORB ANZEIGEN ========================================================== */
 function fullSizeBasket() {
     let fullSizeBasket = document.getElementById('basketContent');
     fullSizeBasket.classList.add("fullSize");
   }
 
-function deleteFromBasket(i) {
-    basket.splice(i, 1);
-    prices.splice(i, 1);
-    amounts.splice(i, 1);
-
-    renderBasket();
-    save();
-  }
-
-function removeFromBasket(i) {
-
-    if(amounts[i] > 1) {
-      amounts[i]--; 
-    } else {
-      basket.splice(i, 1);
-      prices.splice(i, 1);
-      amounts.splice(i, 1);
-    }
-    renderBasket();
-    save();
-  }
-
-function addToBasket(i) {
-  amounts[i]++; 
-  
-  renderBasket();
-  save();
-}
-
 function closeBasket() {
   document.getElementById('basketContent').classList.remove('fullSize');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

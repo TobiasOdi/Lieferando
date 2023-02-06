@@ -1,12 +1,14 @@
+/* ====================================================== ALLGEMEIN =========================================================== */
 :root {
-    --orange: #ff8000;
+    --mainColor: #0c6fb7;
+
     --black: rgb(36, 46, 48);
     --darkGrey: rgb(48, 61, 63);
     --lightGrey: rgb(240, 239, 239);
-    --green: green;
+
     --background: rgb(252, 252, 252);
     --border: rgb(219, 217, 215);
-    --buttonBackground: rgb(245, 243, 241);
+    --buttonBackground: rgb(220, 233, 241);
 }
 
 body {
@@ -16,7 +18,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* ================================ HEADER ================================ */
+/* ====================================================== HEADER =========================================================== */
 
 header {
     top: 0;
@@ -29,12 +31,13 @@ header {
     align-items: center;
     border-bottom: 1px solid var(--lightGrey);
     box-shadow: 0 6px 5px -2px var(--lightGrey);
+    background-color: var(--buttonBackground);
 }
 
 .logo {
     height: 35px;
     width: auto;
-    fill: var(--orange);
+    fill: var(--mainColor);
 }
 
 header>div:first-of-type {
@@ -47,7 +50,7 @@ header>div:first-of-type>p {
     padding-left: 1rem;
     font-size: 1.3rem;
     font-weight: bold;
-    color: var(--orange);
+    color: var(--mainColor);
 }
 
 header>div:nth-of-type(2) {
@@ -93,18 +96,15 @@ header>div:last-of-type>div {
     border-radius: 1px;
 }
 
-/* ================================ Restaurant Info ================================ */
+/* ====================================================== RESTAURANT =========================================================== */
 .main {
     display: flex;
     justify-content: space-between;
-
 }
 
 .main>section {
     width: 77.5%;
 }
-
-/* ================================ Restaurant Info ================================ */
 
 .restaurant {
     border-bottom: 1px solid var(--lightGrey);
@@ -170,9 +170,9 @@ header>div:last-of-type>div {
 .star>img {
     height: 15px;
     width: auto;
-    fill: var(--orange);
+    fill: var(--mainColor);
     margin-right: 0.2rem;
-    color: var(--orange);
+    color: var(--mainColor);
 }
 
 .bewertung>div:nth-of-type(5)>img {
@@ -231,7 +231,7 @@ header>div:last-of-type>div {
     margin-right: 0.5rem;
 }
 
-
+/* ====================================================== FILTER BAR =========================================================== */
 .filter {
     width: 100%;
     display: flex;
@@ -242,7 +242,7 @@ header>div:last-of-type>div {
 
 .filter>div:first-of-type {
     border-radius: 50%;
-    background-color: rgb(245, 243, 241);
+    background-color: var(--buttonBackground);
     height: 30px;
     width: 30px;
     display: flex;
@@ -252,7 +252,7 @@ header>div:last-of-type>div {
 
 .filter>div:last-of-type {
     border-radius: 50%;
-    background-color: rgb(245, 243, 241);
+    background-color: var(--buttonBackground);
     height: 30px;
     width: 30px;
     display: flex;
@@ -319,7 +319,7 @@ header>div:last-of-type>div {
     background-color: var(--buttonBackground);
 }
 
-/* ============================== WARENKORB ================================== */
+/* ====================================================== WARENKORB =========================================================== */
 
 .basket {
     position: sticky;
@@ -385,7 +385,7 @@ header>div:last-of-type>div {
     width: auto;
 }
 
-/* ============================== WARENKORB INHALT================================== */
+/* ====================================================== WARENKORB INHALT=========================================================== */
 
 .items {
     width: 100%;
@@ -458,8 +458,7 @@ header>div:last-of-type>div {
     background-color: var(--buttonBackground);
 }
 
-/* ============================== WARENKORB INFORMATION ================================== */
-
+/* ==================================================== WARENKORB LIEFERINFORAMTION ======================================================= */
 .hide {
     display: none;
 }
@@ -492,15 +491,13 @@ header>div:last-of-type>div {
     margin-top: 0;
     margin-bottom: 0;
     font-size: 0.8rem;
-
 }
 
 .hint>div:last-of-type>p:first-of-type {
     margin-right: 0.5rem;
 }
 
-/* ============================== WARENKORB BERECHNUNG ================================== */
-
+/* ==================================================== WARENKORB BERECHNUNG ======================================================= */
 .eur {
     margin-left: 0.5rem;
 }
@@ -538,20 +535,18 @@ header>div:last-of-type>div {
 }
 
 .calculation>div>button {
+    color: white;
     margin-top: 0.5rem;
     border-radius: 30px;
     height: 2.5rem;
-    background-color: var(--orange);
+    background-color: var(--mainColor);
     border: none;
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
 }
 
-
-
-/* ================================== GERICHTE ====================================== */
-
+/* ==================================================== GERICHTE ======================================================= */
 .gerichte {
     padding-left: 10%;
     padding-right: 10%;
@@ -570,6 +565,91 @@ header>div:last-of-type>div {
     font-size: 1.5rem;
 }
 
+.categorie>div>div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.categorie>div>div:hover {
+    background-color: var(--lightGrey);
+}
+
+
+.categorie>div>div p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.foodTitle>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.foodTitle>div>h1 {
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.foodTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.foodTitle>div:first-of-type>img {
+    height: 22px;
+    width: auto;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    border-radius: 50%;
+}
+
+.foodTitle>div:last-of-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: var(--buttonBackground);
+    padding: 3px;
+}
+
+.foodTitle>div:last-of-type>img {
+    height: 22px;
+    width: auto;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.foodDescription>p{
+    padding-right: 2.2rem;
+}
+
+.price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.price>p:last-of-type {
+    margin-left: 0.5rem;
+}
+
+/* ==================================================== ALLERGIE INFO ======================================================= */
 .productInfoBackground{
     display: none;
     top: 0;
@@ -640,7 +720,6 @@ header>div:last-of-type>div {
     align-items: center;
     padding: 3px;
     border-radius: 3px;
-
 }
 
 .productInfo > div:first-of-type > div:last-of-type:hover {
@@ -651,87 +730,6 @@ header>div:last-of-type>div {
 .productInfo img {
     height: 20px;
     width: auto;
-
-}
-
-.categorie>div>div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.categorie>div>div:hover {
-    background-color: var(--lightGrey);
-}
-
-
-.categorie>div>div p {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.foodTitle>div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-.foodTitle>div>h1 {
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: bold;
-    font-size: 1.3rem;
-}
-
-.foodTitle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.foodTitle>div:first-of-type>img {
-    height: 22px;
-    width: auto;
-    cursor: pointer;
-    margin-left: 0.5rem;
-    border-radius: 50%;
-}
-
-.foodTitle>div:last-of-type {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    background-color: var(--buttonBackground);
-    padding: 3px;
-}
-
-.foodTitle>div:last-of-type>img {
-    height: 22px;
-    width: auto;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.price {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 1rem;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.price>p:last-of-type {
-    margin-left: 0.5rem;
 }
 
 /* ====================================================== FOOTER ======================================================= */
@@ -789,7 +787,7 @@ footer>div:last-of-type {
     align-items: center;
     border-radius: 30px;
     height: 2.5rem;
-    background-color: var(--orange);
+    background-color: var(--mainColor);
     border: none;
     font-weight: bold;
     color: white;
@@ -863,6 +861,14 @@ footer>div:last-of-type {
         padding-left: 5%;
         padding-right: 5%;
     }
+
+    .basket {
+        width: 28%;
+    }
+
+    .main > section {
+        width: 72%;
+    }
 }
 
 @media(max-width: 1025px) {
@@ -883,6 +889,13 @@ footer>div:last-of-type {
 }
 
 @media(max-width: 720px) {
+    footer > div:first-of-type {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+}
+
+@media(max-width: 720px) {
     header>div:last-of-type>div:first-of-type {
         display: none;
     }
@@ -891,5 +904,10 @@ footer>div:last-of-type {
         display: none;
 
     }
+}
 
+@media(max-width: 450px) {
+    .categorie > h1 {
+        font-size: 1rem;
+    }
 }

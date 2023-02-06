@@ -4,27 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lieferando</title>
+    <title>FoodToGo</title>
 
+    <!-- =================================================== STYLESHEET ================================================ -->
     <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <!-- =================================================== Favicon ================================================ -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="./img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="./img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
   </head>
 
-  <body id="body" onload="render(), load(), renderBasket()">
+  <body id="body" onload="renderFoods(), load(), renderBasket()">
 
-    <!-- ======================================= HEADER ================================================ -->
+    <!-- =================================================== HEADER ================================================ -->
     <header>
       <div>
-        <img class="logo" src="./img/icons/home.png" alt="Icon eines Hauses" />
-        <p>Lieferando</p>
+        <img class="logo" src="./img/icons/gabel-und-messer-dunne-kontur.png" alt="Icon eines Hauses" />
+        <p>FoodToGo</p>
       </div>
       <div><p>Speisekarte</p></div>
       <div>
         <div>
-          <img
-            class="sprache"
-            src="./img/icons/deutschland.png"
-            alt="Icoon einer Deutschladn Flagge"
-          />
+          <img class="sprache" src="./img/icons/deutschland.png" alt="Icoon einer Deutschladn Flagge"/>
         </div>
         <div class="burger">
           <div></div>
@@ -42,32 +49,29 @@
             <div class="backgroundImg">
               <div>
                 <div>
-                  <img
-                    src="./img/restaurantlogo.png"
-                    alt="Logo des Restaurants"
-                  />
+                  <img src="./img/restaurantlogo.png" alt="Logo des Restaurants"/>
                 </div>
               </div>
             </div>
           </div>
 
           <div>
-            <h1>Mai Wok Sushi</h1>
+            <h1>Sushi Corner</h1>
             <div class="bewertung">
               <div class="star">
-                <img src="./img/icons/star.png" alt="Icon eines Sterns" />
+                <img src="./img/icons/star2.png" alt="Icon eines Sterns" />
               </div>
               <div class="star">
-                <img src="./img/icons/star.png" alt="Icon eines Sterns" />
+                <img src="./img/icons/star2.png" alt="Icon eines Sterns" />
               </div>
               <div class="star">
-                <img src="./img/icons/star.png" alt="Icon eines Sterns" />
+                <img src="./img/icons/star2.png" alt="Icon eines Sterns" />
               </div>
               <div class="star">
-                <img src="./img/icons/star.png" alt="Icon eines Sterns" />
+                <img src="./img/icons/star2.png" alt="Icon eines Sterns" />
               </div>
               <div class="star">
-                <img src="./img/icons/star (1).png" alt="Icon eines Sterns" />
+                <img src="./img/icons/star1.png" alt="Icon eines Sterns" />
               </div>
               <div>
                 <p>3.5k Bewertung</p>
@@ -85,7 +89,7 @@
                   src="./img/icons/radfahrer.png"
                   alt="Icon eines Fahrrades"
                 />
-                <p>Kostenlos</p>
+                <p>5,00 €</p>
                 <div></div>
               </div>
               <div>
@@ -138,6 +142,35 @@
         </section>
       </section>
 
+      <!-- =================================== ALLERGIE INFO ======================================= -->
+      <div id="productInfoBackground" class="productInfoBackground">
+      </div>
+
+      <div id="productInfo" class="productInfo">
+        <div>
+          <div> 
+            <h1>Weitere Produktinformationen</h1>
+          </div>
+          <div onclick="closeInfo()">
+            <img src="./img/icons/close.png">
+          </div>
+        </div>
+        <div>
+          <h2>Allergene</h2>
+        </div>
+        <div >
+          <ul class="allergenic">
+            <li>Enthält Senf/-Erzeugnisse</li>
+            <li>Enthält Fisch/-Erzeugnisse</li>
+            <li>Enthält glutenhaltige/s Getreide/-Erzeugnisse</li>
+            <li>Weizen</li>
+          </ul>
+        </div>
+        <div>
+          Wir stellen dir stets relevante Informationen zur Verfügung, die wir von unseren Partnern über deren Produkte erhalten. In einigen Fällen können die angezeigten Informationen jedoch unvollständig, automatisch generiert und/oder noch nicht von Mai Wok Sushi validiert worden sein. Bitte wende dich über dieses Formular an unseren Kundenservice, wenn du Allergien, Unverträglichkeiten oder Fragen zu bestimmten Artikeln hast.
+        </div>
+      </div>
+    
     <!-- ======================================= WARENKORB ================================================ -->
       <aside id="basketContent" class="basket">
 
@@ -182,43 +215,6 @@
           Wir stellen dir stets relevante Informationen zur Verfügung, die wir von unseren Partnern über deren Produkte erhalten. In einigen Fällen können die angezeigten Informationen jedoch unvollständig, automatisch generiert und/oder noch nicht von Mai Wok Sushi validiert worden sein. Bitte wende dich über dieses Formular an unseren Kundenservice, wenn du Allergien, Unverträglichkeiten oder Fragen zu bestimmten Artikeln hast.
         </div>
       </div>
-
-      <!-- =================================== ALLERGIE INFO ======================================= -->
-
-
-      <div id="productInfoBackground" class="productInfoBackground">
-      </div>
-
-      <div id="productInfo" class="productInfo">
-        <div>
-          <div> 
-            <h1>Weitere Produktinformationen</h1>
-          </div>
-          <div onclick="closeInfo()">
-            <img src="./img/icons/close.png">
-          </div>
-        </div>
-        <div>
-          <h2>Allergene</h2>
-        </div>
-        <div >
-          <ul class="allergenic">
-            <li>Enthält Senf/-Erzeugnisse</li>
-            <li>Enthält Fisch/-Erzeugnisse</li>
-            <li>Enthält glutenhaltige/s Getreide/-Erzeugnisse</li>
-            <li>Weizen</li>
-          </ul>
-        </div>
-        <div>
-          Wir stellen dir stets relevante Informationen zur Verfügung, die wir von unseren Partnern über deren Produkte erhalten. In einigen Fällen können die angezeigten Informationen jedoch unvollständig, automatisch generiert und/oder noch nicht von Mai Wok Sushi validiert worden sein. Bitte wende dich über dieses Formular an unseren Kundenservice, wenn du Allergien, Unverträglichkeiten oder Fragen zu bestimmten Artikeln hast.
-        </div>
-      </div>
-
-
-
-
-
-
 
     <!-- =================================== MOBILE BASKET OVERLAY ======================================= -->
     <div id="overlayBasket" class="overlayBasket">
